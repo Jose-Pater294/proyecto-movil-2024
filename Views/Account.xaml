@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlayField.Views.Account"
+             Title="Cuenta" 
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#fff"
+             IconImageSource="account.svg">
+    <ScrollView VerticalOptions="Center">
+        <VerticalStackLayout VerticalOptions="Center">
+            <Label
+                Text="Cuenta" 
+                TextColor="Black"
+                FontSize="30"
+                FontFamily="Raleway Medium"
+                Margin="30, 30, 0, 20"/>
+
+            <VerticalStackLayout Margin="0, 0, 0, 10">
+                <HorizontalStackLayout Margin="20, 0, 0, 20" Spacing="10">
+                    <Frame Padding="0" CornerRadius="10" HeightRequest="80" WidthRequest="80" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="True">
+                        <Frame.Shadow>
+                            <Shadow Radius="40" Offset="0, 0" Brush="Black" Opacity="0.20"/>
+                        </Frame.Shadow>
+                        <ImageButton Source="pfp.png" HeightRequest="80" WidthRequest="80" Aspect="AspectFill" />
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="CenterAndExpand"  Margin="5, 0, 0, 0">
+                        <Label Text="" FontSize="24" FontFamily="Raleway Medium" x:Name="FullName"/>
+                        <Label Text="" FontSize="18" FontFamily="Raleway Regular" x:Name="email1"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <VerticalStackLayout Spacing="13" Padding="30, 0">
+
+                    <HorizontalStackLayout Spacing="20" HorizontalOptions="CenterAndExpand">
+
+                        <VerticalStackLayout>
+                            <Label Text="Nombre" FontSize="20" FontFamily="Raleway Medium" Margin="0, 0, 0, 10"/>
+                            <Frame Padding="0" BorderColor="Transparent" BackgroundColor="#F0F0F0" HasShadow="True">
+                                <Frame.Shadow>
+                                    <Shadow Radius="40" Offset="0, 10" Brush="Black" Opacity="0.20"/>
+                                </Frame.Shadow>
+                                <Entry Placeholder="Nombre" Text="" FontFamily="Raleway Regular" FontSize="16" IsReadOnly="True" WidthRequest="163" x:Name="name"/>
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Label Text="Apellidos" FontSize="20" FontFamily="Raleway Medium" Margin="0, 0, 0, 10"/>
+                            <Frame Padding="0" BorderColor="Transparent" BackgroundColor="#F0F0F0" HasShadow="True">
+                                <Frame.Shadow>
+                                    <Shadow Radius="40" Offset="0, 10" Brush="Black" Opacity="0.20"/>
+                                </Frame.Shadow>
+                                <Entry Placeholder="Apellidos" Text="" FontFamily="Raleway Regular" FontSize="16" IsReadOnly="True" WidthRequest="162" x:Name="lastName"/>
+                            </Frame>
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+
+                    <VerticalStackLayout>
+                        <Label Text="Número de identificación" FontSize="20" FontFamily="Raleway Medium" Margin="0, 0, 0, 10"/>
+                        <Frame Padding="0" BorderColor="Transparent" BackgroundColor="#F0F0F0" HasShadow="True">
+                            <Frame.Shadow>
+                                <Shadow Radius="40" Offset="0, 10" Brush="Black" Opacity="0.20"/>
+                            </Frame.Shadow>
+                            <Entry Placeholder="Identificación" Text="" FontFamily="Raleway Regular" FontSize="16" IsReadOnly="True" x:Name="id"/>
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="Email" FontSize="20" FontFamily="Raleway Medium" Margin="0, 0, 0, 10"/>
+                        <Frame Padding="0" BorderColor="Transparent" BackgroundColor="#F0F0F0" HasShadow="True">
+                            <Frame.Shadow>
+                                <Shadow Radius="40" Offset="0, 10" Brush="Black" Opacity="0.20"/>
+                            </Frame.Shadow>
+                            <Entry Placeholder="Email" Text="" FontFamily="Raleway Regular" FontSize="16" x:Name="email2" IsReadOnly="True"/>
+                        </Frame>
+                    </VerticalStackLayout>
+                    
+                    <Button Text="Cerrar sesión" BackgroundColor="#DB3535" TextColor="White" Padding="15" FontSize="18" FontFamily="Raleway Bold" Clicked="Logout" CornerRadius="10"/>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

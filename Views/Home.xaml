@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PlayField.Views.Home"
+    Title="Inicio" 
+    IconImageSource="home.svg" 
+    BackgroundColor="#fff"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <!--Bienvenida-->
+            <HorizontalStackLayout 
+                Margin="30, 30, 0, 50">
+                <Label
+                    Text=""
+                    FontFamily="Raleway Medium"
+                    TextColor="Black"
+                    FontSize="30"
+                    x:Name="WelcomeName"/>
+            </HorizontalStackLayout>
+
+            <ActivityIndicator 
+                IsRunning="True"
+                IsVisible="False"
+                Margin="0, 280, 0, 420"
+                Color="#208D2B"
+                HorizontalOptions="CenterAndExpand"
+                x:Name="Loader"/>
+
+            <!--Cancha disponibles-->
+
+            <VerticalStackLayout>
+                <CollectionView ItemsSource="{Binding}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Margin="0, 0, 0, 30">
+                                <Frame 
+                    Padding="40, 0" 
+                    BackgroundColor="Transparent" 
+                    BorderColor="Transparent" 
+                    HasShadow="True">
+
+                                    <Frame.Shadow>
+                                        <Shadow Radius="30" Offset="0, 0" Brush="Black" Opacity="0.35"/>
+                                    </Frame.Shadow>
+
+                                    <ImageButton
+                        Source="cancha.jpg" Aspect="AspectFill" 
+                        HorizontalOptions="CenterAndExpand"
+                        HeightRequest="150"
+                                        Clicked="OpenFieldView"
+                                        CommandParameter="{Binding CanchaId}"/>
+                                </Frame>
+
+                                <VerticalStackLayout HorizontalOptions="CenterAndExpand">
+                                    <HorizontalStackLayout 
+                        Padding="0, 20, 0, 0">
+                                        <Label 
+                            Text="{Binding CanchaId, StringFormat='Cancha {0}'}" 
+                            FontSize="26"
+                            FontFamily="Raleway Medium"
+                            VerticalOptions="Center"
+                            Margin="0, -5, 0, 0"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

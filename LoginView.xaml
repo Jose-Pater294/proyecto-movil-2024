@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    BackgroundColor="#fff" 
+    NavigationPage.HasNavigationBar="False"
+    x:Class="PlayField.LoginView" 
+    Padding="0">
+
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#000" StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout VerticalOptions="Center" Padding="0">
+
+        <HorizontalStackLayout 
+            Margin="0,0,0,0" 
+            HorizontalOptions="Center" 
+            VerticalOptions="CenterAndExpand">
+            
+            <Image 
+                Source="ball.svg" 
+                VerticalOptions="Center" 
+                Margin="0, 8, 0, 0" HeightRequest="60" Aspect="AspectFit" />
+            
+            <Label 
+                Text="PlayField"
+                FontSize="35" 
+                FontFamily="Raleway Bold"/>
+            
+        </HorizontalStackLayout>
+
+
+        <Label 
+            Text="Canchas de Fútbol"
+            FontSize="35" 
+            FontFamily="Raleway Bold" 
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            TextColor="#208D2B"/>
+
+        <VerticalStackLayout Padding="20">
+
+            <Label Text="Iniciar sesión"
+                       TextColor="Black"
+                       FontSize="30"
+                       Margin="20, 30, 0, 25"
+                       FontFamily="Raleway Bold"/>
+
+            <VerticalStackLayout 
+                    Spacing="20" 
+                    Margin="20, 0, 20, 20">
+
+                <Frame 
+                        CornerRadius="8" 
+                        Padding="0" 
+                        BorderColor="#000">
+
+                    <Entry 
+                            Placeholder=" Email"
+                            TextColor="Black"
+                            PlaceholderColor="#A8A8A8"
+                            BackgroundColor="#F0F0F0"
+                        
+                            FontSize="16"
+                            x:Name="Email"/>
+
+                </Frame>
+
+                <Frame 
+                        CornerRadius="8" 
+Padding="0" 
+BorderColor="#000">
+
+                    <Entry
+                            Placeholder=" Contraseña"
+                            TextColor="Black"
+                            BackgroundColor="#F0F0F0"
+                            PlaceholderColor="#A8A8A8"
+                            IsPassword="True"
+                            FontSize="16"
+                            x:Name="Password"/>
+
+                </Frame>
+
+            </VerticalStackLayout>
+
+
+
+            <Button 
+                    Text="Entrar"
+                    TextColor="White"
+                    BackgroundColor="#208D2B"
+                    WidthRequest="330"
+                    HeightRequest="50"
+                    FontSize="20"
+                    FontFamily="Raleway Bold"
+                    Clicked="Login"/>
+
+            <HorizontalStackLayout 
+                    HorizontalOptions="Center" 
+                    Margin="0, 25, 0, 0">
+
+                <Label 
+                        Text="¿Sin cuenta?"
+                        TextColor="Black"
+                        FontSize="20"
+                        FontFamily="Raleway Regular"/>
+
+                <Button 
+                        Text="Regístrate aquí"
+                        TextColor="#208D2B"
+                        BackgroundColor="Transparent"
+                        FontSize="20" 
+                        Padding="0" 
+                        Margin="5, -8, 0, 0"
+                        FontFamily="Raleway Bold"
+                        Clicked="OpenRegisterView"/>
+            </HorizontalStackLayout>
+
+            <ActivityIndicator 
+                        IsRunning="True"
+                        IsVisible="False"
+                    HeightRequest="35"
+                    Margin="0, 25, 0, 0"
+                        Color="#16370A"
+                        x:Name="Loader"/>
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>

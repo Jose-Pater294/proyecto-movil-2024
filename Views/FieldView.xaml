@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+             x:Class="PlayField.Views.FieldView"
+             Title="TableView"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F0F0F0">
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout Margin="20, 30, 0, 20">
+                <ImageButton
+                Source="back.svg"
+                HeightRequest="30"
+                WidthRequest="30"
+                Margin="0, 5, 0, 0"
+                Clicked="GoBack"/>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label
+                    FontSize="20"
+                    FontFamily="Raleway Medium" 
+                    x:Name="CanchaTitle"
+                    HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+
+            <VerticalStackLayout>
+                <VerticalStackLayout Padding="20" Spacing="10">
+                    <Image HeightRequest="140" 
+                       Aspect="AspectFit"
+                       Margin="0, 0, 0, 20"
+                       Source="cancha.jpg"
+                           
+                           />
+
+                    <Label
+                    x:Name="CanchaId" IsVisible="False"/>
+
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Fecha:" FontSize="18" FontFamily="Raleway Bold" VerticalOptions="Center"/>
+                        <DatePicker FontSize="18" VerticalOptions="Center" x:Name="ReserveDate"/>
+                        <Label Text="Hora:" FontSize="18" FontFamily="Raleway Bold" VerticalOptions="Center"/>
+                        <TimePicker FontSize="18" x:Name="ReserveHour" />
+                    </HorizontalStackLayout>
+
+                    <VerticalStackLayout Spacing="10" Margin="0, 20, 0, 0">
+                        <Button Text="Reservar cancha" FontFamily="Raleway Medium" FontSize="17" Padding="15" BorderColor="#208D2B" BackgroundColor="Transparent" BorderWidth="1" TextColor="#208D2B"  Clicked="Reserve"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Reservas existentes" HorizontalOptions="Center" FontSize="23" FontFamily="Raleway Medium" HorizontalTextAlignment="Center"/>
+                    <cal:Calendar 
+                        Events="{Binding Events}"
+                        EventsScrollViewVisible="True" 
+                        HorizontalOptions="Center" 
+                        WidthRequest="350" 
+                        ArrowsBackgroundColor="Black" 
+                        ShowYearPicker="False" 
+                        SelectedDateColor="#F0F0F0" 
+                        SelectedDayBackgroundColor="#208D2B" 
+                        TodayOutlineColor="#208D2B" 
+                        ArrowsBorderWidth="0" 
+                        MonthLabelColor="Black" 
+                        ArrowsColor="White" 
+                        FooterArrowVisible="False"
+                        ArrowsSymbolPrev="&lt;"
+                        ArrowsSymbolNext=">" 
+                        x:Name="bookingCalendar"
+                        AnimateCalendar="True"
+                        EventIndicatorColor="#208D2B"
+                        EventIndicatorSelectedColor="#208D2B"
+                        SelectedDayTextColor="White">
+
+                        <cal:Calendar.EventTemplate>
+                            <DataTemplate>
+                                <VerticalStackLayout Margin="0, -10, 0, 0">
+                                    <HorizontalStackLayout HorizontalOptions="Center" Margin="0, 10" Spacing="0">
+                                        <Label Text="{Binding Name}" FontSize="20" FontFamily="Raleway Medium" HorizontalTextAlignment="Center"/>
+                                        <Label 
+            FontFamily="Raleway Regular"
+            Text="{Binding Hour, StringFormat='{0} p.m'}" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="20"
+               HorizontalOptions="Center"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </cal:Calendar.EventTemplate>
+                    </cal:Calendar>
+                    
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
